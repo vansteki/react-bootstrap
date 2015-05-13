@@ -1,0 +1,40 @@
+{
+  "name": "react-bootstrap",
+  "version": "0.0.1",
+  "description": "react-bootstrap",
+  "repository": "https://github.com/vansteki/react-bootstrap",
+  "main": "js/app.js",
+  "dependencies": {
+    "flux": "^2.0.1",
+    "keymirror": "~0.1.0",
+    "object-assign": "^1.0.0",
+    "react": "^0.12.0"
+  },
+  "devDependencies": {
+    "browserify": "^6.2.0",
+    "envify": "^3.0.0",
+    "gulp": "^3.8.11",
+    "gulp-connect": "^2.2.0",
+    "gulp-livereload": "^3.8.0",
+    "jest-cli": "^0.4.3",
+    "reactify": "^0.15.2",
+    "uglify-js": "~2.4.15",
+    "watchify": "^2.1.1"
+  },
+  "scripts": {
+    "start": "watchify -o js/bundle.js -v -d js/app.js",
+    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js",
+    "liveReload": "gulp",
+    "test": "jest"
+  },
+  "author": "vansteki",
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  },
+  "jest": {
+    "rootDir": "./js"
+  }
+}
