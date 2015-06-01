@@ -28,7 +28,6 @@ var App = React.createClass({
   addItem: function(e) {
     e.preventDefault();
     this.state.items.push(this.state.text);
-    this.state.text = "";
     console.log('addItem!')
     console.log(this.state.items);
     this.setState({
@@ -44,16 +43,15 @@ var App = React.createClass({
     });
   },
   onInput: function(e) {
-    // this.state.text = e.target.value; <- this will cause input alwasy to be ''
-    this.setState({text: e.target.value}); //use setState
+    this.setState({text: e.target.value});
   },
   render: function() {
     return (
       <div>
-        <h3>TODOXD</h3>
+        <h3>TODO</h3>
         <List items={this.state.items} fn={this.removeItemHandler}/>
         <form>
-          <input type='text' value={this.state.text /*use value='' will broke form*/} onChange={this.onInput}/>
+          <input type='text' value={this.state.text} onChange={this.onInput}/>
           <button onClick={this.addItem}>+</button>
         </form>
       </div>
