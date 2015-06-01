@@ -11,21 +11,22 @@
     "react": "^0.12.0"
   },
   "devDependencies": {
-    "browserify": "^6.2.0",
-    "envify": "^3.0.0",
-    "gulp": "^3.8.11",
-    "gulp-connect": "^2.2.0",
-    "gulp-livereload": "^3.8.0",
-    "jest-cli": "^0.4.3",
-    "reactify": "^0.15.2",
+    "browserify": "6.2.0",
+    "envify": "3.0.0",
+    "gulp": "3.8.11",
+    "gulp-connect": "2.2.0",
+    "gulp-livereload": "3.8.0",
+    "jest-cli": "0.4.3",
+    "reactify": "0.15.2",
     "uglify-js": "~2.4.15",
-    "watchify": "^2.1.1"
+    "watchify": "^3.2.1"
   },
   "scripts": {
     "start": "watchify -o js/bundle.js -v -d js/app.js",
     "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js",
-    "liveReload": "gulp",
-    "test": "jest"
+    "live": "gulp",
+    "test": "jest",
+    "//": "npm start for bundle.js, npm run live for live-reload"
   },
   "author": "vansteki",
   "browserify": {
